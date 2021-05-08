@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 
 const Button = ({ text, handleClick }) => (
   <button onClick={handleClick}>{text}</button>
 );
+
+const Statistics = ({ all, average, positive }) => {
+  return (
+    <Fragment>
+      <div>all {all}</div>
+      <div>average {average}</div>
+      <div>positive {positive}</div>
+    </Fragment>
+  );
+};
 
 const App = () => {
   // save clicks of each button to its own state
@@ -30,9 +40,11 @@ const App = () => {
         <div>good {good}</div>
         <div>neutral {neutral}</div>
         <div>bad {bad}</div>
-        <div>all {totalScore()}</div>
-        <div>average {averageScore()}</div>
-        <div>positive {positivePercentage()}</div>
+        <Statistics
+          all={totalScore()}
+          average={averageScore()}
+          positive={positivePercentage()}
+        />
       </div>
     </div>
   );
