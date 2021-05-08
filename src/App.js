@@ -4,9 +4,13 @@ const Button = ({ text, handleClick }) => (
   <button onClick={handleClick}>{text}</button>
 );
 
-const Statistics = ({ all, average, positive }) => {
+const Statistics = ({ good, neutral, bad, all, average, positive }) => {
   return (
     <Fragment>
+      <h1>Statistics</h1>
+      <div>good {good}</div>
+      <div>neutral {neutral}</div>
+      <div>bad {bad}</div>
       <div>all {all}</div>
       <div>average {average}</div>
       <div>positive {positive}</div>
@@ -36,11 +40,10 @@ const App = () => {
         <Button text="bad" handleClick={() => setBad(bad + 1)} />
       </div>
       <div>
-        <div>Statistics</div>
-        <div>good {good}</div>
-        <div>neutral {neutral}</div>
-        <div>bad {bad}</div>
         <Statistics
+          good={good}
+          neutral={neutral}
+          bad={bad}
           all={totalScore()}
           average={averageScore()}
           positive={positivePercentage()}
