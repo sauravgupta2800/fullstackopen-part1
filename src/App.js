@@ -4,6 +4,8 @@ const Button = ({ text, handleClick }) => (
   <button onClick={handleClick}>{text}</button>
 );
 
+const Statistic = ({ text, value }) => <div>{`${text} ${value}`}</div>;
+
 const Statistics = ({ good, neutral, bad, all, average, positive }) => {
   return (
     <Fragment>
@@ -12,12 +14,12 @@ const Statistics = ({ good, neutral, bad, all, average, positive }) => {
         <div>No feeback given</div>
       ) : (
         <div>
-          <div>good {good}</div>
-          <div>neutral {neutral}</div>
-          <div>bad {bad}</div>
-          <div>all {all}</div>
-          <div>average {average}</div>
-          <div>positive {positive}</div>
+          <Statistic text="good" value={good} />
+          <Statistic text="neutral" value={neutral} />
+          <Statistic text="bad" value={bad} />
+          <Statistic text="all" value={all} />
+          <Statistic text="average" value={average} />
+          <Statistic text="positive" value={positive} />
         </div>
       )}
     </Fragment>
